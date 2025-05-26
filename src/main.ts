@@ -7,7 +7,9 @@ import { join } from 'path';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.use(express.static(join(__dirname, '..', 'src', 'public', 'welcome_view')));
+  app.use(express.static(join(process.cwd(), 'src', 'public', 'welcome_view')));
+  app.use(express.static(join(process.cwd(), 'src', 'public', 'home_view')));
+
 
   const config = new DocumentBuilder()
     .setTitle('Accessories Shop API')
